@@ -50,8 +50,11 @@ let deleteTask=(id)=>{
 
 let tasks =ref([])
  onMounted(async ()=>{
+  try{
   let response= await axios.get("http://127.0.0.1:8000/api/tasks");
-  tasks.value=response.data
+  tasks.value=response.data}catch{
+    Swal.fire({text:"Error",icon:"warning"})
+  }
  })
 
  return{tasks,deleteTask}

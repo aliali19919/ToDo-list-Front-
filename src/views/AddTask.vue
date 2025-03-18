@@ -56,11 +56,11 @@ let submitHandler= async()=>{
       task.value = "";
       router.push({ name: "viewTasks" });
     } else {
-      Swal.fire({ title: "Failed To Create", icon: "error" });
+      Swal.fire({ title: "Failed To Create", icon: "Warning" });
       task.value = "";
     }
   } catch (error) {
-    console.log(res.data)
+    Swal.fire({title:"Creation Failed",icon:"error"})
   }
 }
 return{task,submitHandler}
